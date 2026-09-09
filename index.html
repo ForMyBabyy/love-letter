@@ -1,83 +1,280 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>For you </title>
+    <title>Happy Monthsary Baby ❤️</title>
 
     <style>
+        * {
+            box-sizing: border-box;
+        }
+
         body {
-            background-color: #ffd6e0;
+            margin: 0;
             font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #ffd6e7, #fff0f5);
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        /* Floating Hearts */
+        .heart {
+            position: fixed;
+            bottom: -20px;
+            font-size: 25px;
+            animation: float 6s linear infinite;
+            opacity: 0.7;
+            z-index: 0;
+        }
+
+        .heart:nth-child(1) {
+            left: 10%;
+            animation-delay: 1s;
+        }
+
+        .heart:nth-child(2) {
+            left: 30%;
+            animation-delay: 3s;
+        }
+
+        .heart:nth-child(3) {
+            left: 50%;
+            animation-delay: 0s;
+        }
+
+        .heart:nth-child(4) {
+            left: 70%;
+            animation-delay: 2s;
+        }
+
+        .heart:nth-child(5) {
+            left: 90%;
+            animation-delay: 4s;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(0);
+                opacity: 0;
+            }
+
+            20% {
+                opacity: 0.8;
+            }
+
+            100% {
+                transform: translateY(-100vh);
+                opacity: 0;
+            }
+        }
+
+        /* PAGE 1 */
+        .page1 {
+            min-height: 100vh;
             display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
-            min-height: 100v;
-            margin: 0;
+            position: relative;
+            z-index: 1;
+        }
+
+        .envelope {
+            position: relative;
+            width: 280px;
+            height: 180px;
+            background: #ff8fab;
+            border-radius: 8px;
+            cursor: pointer;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+        }
+
+        .envelope::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            border-left: 140px solid transparent;
+            border-right: 140px solid transparent;
+            border-top: 100px solid #ffb3c6;
         }
 
         .letter {
-            background-color: white;
-            width: 500px
-            max-width: 30px;
+            position: absolute;
+            background: white;
+            width: 230px;
+            height: 150px;
+            left: 25px;
+            top: 15px;
+            border-radius: 5px;
+            text-align: center;
+            padding: 20px;
+            transition: 1s;
+            z-index: -1;
+        }
+
+        .envelope.open .letter {
+            transform: translateY(-120px);
+        }
+
+        .envelope-text {
+            margin-top: 40px;
+            color: white;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .page1 h1 {
+            color: #d6336c;
+            margin-top: 50px;
+            font-size: 35px;
+        }
+
+        .continue {
+            background: #ff5d8f;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 25px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 15px;
+        }
+
+        .continue:hover {
+            background: #e64980;
+        }
+
+        /* PAGE 2 */
+        .page2 {
+            display: none;
+            min-height: 100vh;
+            padding: 50px 20px;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .message {
+            background: rgba(255, 255, 255, 0.9);
+            max-width: 600px;
+            padding: 35px;
             border-radius: 20px;
-            box-shadow: 0 5px 15px gray;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
         }
 
-        .heart {
+        .message h2 {
             text-align: center;
-            font-size: 50px;
+            color: #d6336c;
+            margin-bottom: 25px;
         }
 
-        h1 {
-            text-align: center;
-            color: #e755480;
-        }
-
-        p {
+        .message p {
             color: #555;
             font-size: 17px;
-            line-height: 1.6;
+            line-height: 1.8;
         }
-        .from {
+
+        .signature {
             text-align: right;
-            color: #e75480
+            color: #d6336c;
             font-weight: bold;
         }
     </style>
 </head>
 
+<body>
+
+    <!-- Floating Hearts -->
+    <div class="heart">❤️</div>
+    <div class="heart">💕</div>
+    <div class="heart">💗</div>
+    <div class="heart">💖</div>
+    <div class="heart">💓</div>
+
+
+    <!-- PAGE 1 -->
+    <section class="page1" id="page1">
+
+        <div class="envelope" onclick="openEnvelope()">
+
+            <div class="letter">
+                💌
+            </div>
+
+            <div class="envelope-text">
+                Click Me ❤️
+            </div>
+
+        </div>
+
+        <h1>Happy Monthsary Baby ❤️</h1>
+
+        <button class="continue" onclick="showMessage()">
+            Continue 💕
+        </button>
+
+    </section>
+
+
+    <!-- PAGE 2 -->
+    <section class="page2" id="page2">
+
+        <div class="message">
+
+            <h2>To My Love ❤️</h2>
+
+            <p>
+                Happy monthsary, baby! ❤️
+            </p>
+
+            <p>
+                I just want you to know how much you mean to me.
+                I'm really grateful to have you in my life and
+                to have someone like you by my side.
+            </p>
+
+            <p>
+                I know we're not perfect and sometimes we have
+                misunderstandings, but I still choose you.
+                I want us to keep growing together and making
+                beautiful memories.
+            </p>
+
+            <p>
+                Thank you for loving me, understanding me,
+                and staying with me. I may not always know
+                the right words to say, but please know that
+                I love you so much.
+            </p>
+
+            <p>
+                Happy monthsary to us, baby. 💕
+                Here's to more months and memories together.
+            </p>
+
+            <p class="signature">
+                I love you always. ❤️<br>
+                — Your Baby
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <script>
+
+        function openEnvelope() {
+            document.querySelector(".envelope").classList.toggle("open");
+        }
+
+        function showMessage() {
+            document.getElementById("page1").style.display = "none";
+            document.getElementById("page2").style.display = "flex";
+        }
+
+    </script>
+
 </body>
-
-    <div class="letter">
-       
-        <div class=heart"> </div>
-
-        <h1>To My Baby</h1>
-
-        <p>My love, My Baby,</p>
-
-        <p>
-            I just want you to know how much you mean to me.
-            Im not always good at expressing my feelings,
-            but i hope you know how much i love youuu and appreciate
-you.
-        <p>
-
-        <p>
-            Thank you for staying with me, for understanding
-            and for being part of my life. Even when things aren't 
-            perfect, I still choose you.
-        <p>
-
-        <p>
-           I LOVEEE YOUUU SO MUCH, BABY!
-        <p>
-
-        <p class="from">
-             Forever yours,<br>
-             kaidee
-        </p>
-
-     </div>
-
-</body>
-</html
+</html>
