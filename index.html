@@ -1,594 +1,135 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Happy Monthsary Baby ❤️</title>
+    <title>A Little Message for You ❤️</title>
 
     <style>
-
-        * {
-            box-sizing: border-box;
-        }
-
         body {
             margin: 0;
-            min-height: 100vh;
-            font-family: Georgia, serif;
-            background: linear-gradient(135deg, #ffd6e7, #fff0f5, #ffc1d6);
+            height: 100vh;
+            background: linear-gradient(#090b2a, #1b1645, #3b1d52);
+            font-family: Arial, sans-serif;
+            color: white;
+            text-align: center;
             overflow: hidden;
         }
 
+        .stars {
+            font-size: 20px;
+            letter-spacing: 25px;
+            line-height: 60px;
+            opacity: 0.8;
+        }
 
-        /* =========================
-           BACKGROUND
-        ========================= */
+        .container {
+            margin-top: 100px;
+            padding: 20px;
+        }
 
-        .background-heart {
-            position: fixed;
-            font-size: 25px;
-            animation: float 7s linear infinite;
-            opacity: 0;
-            z-index: 0;
+        .moon {
+            font-size: 80px;
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            font-size: 32px;
+            margin-bottom: 15px;
+        }
+
+        p {
+            font-size: 18px;
+            color: #eee;
+            line-height: 1.6;
+        }
+
+        .button {
+            display: inline-block;
+            margin-top: 25px;
+            padding: 14px 28px;
+            background-color: #e98bb5;
+            color: white;
+            text-decoration: none;
+            border-radius: 30px;
+            font-size: 17px;
+        }
+
+        .button:hover {
+            background-color: #d96a9d;
+        }
+
+        .heart {
+            position: absolute;
+            font-size: 20px;
+            animation: float 5s infinite;
         }
 
         .heart1 {
-            left: 10%;
-            bottom: -50px;
-            animation-delay: 0s;
+            left: 15%;
+            bottom: 10%;
         }
 
         .heart2 {
-            left: 30%;
-            bottom: -50px;
+            right: 15%;
+            bottom: 20%;
             animation-delay: 2s;
         }
 
         .heart3 {
-            left: 50%;
-            bottom: -50px;
-            animation-delay: 4s;
-        }
-
-        .heart4 {
             left: 70%;
-            bottom: -50px;
+            bottom: 5%;
             animation-delay: 1s;
-        }
-
-        .heart5 {
-            left: 90%;
-            bottom: -50px;
-            animation-delay: 3s;
         }
 
         @keyframes float {
-
             0% {
-                transform: translateY(0) rotate(0deg);
+                transform: translateY(0);
                 opacity: 0;
-            }
-
-            20% {
-                opacity: 0.7;
-            }
-
-            100% {
-                transform: translateY(-110vh) rotate(30deg);
-                opacity: 0;
-            }
-        }
-
-
-        /* =========================
-           SPARKLES
-        ========================= */
-
-        .sparkle {
-            position: fixed;
-            color: white;
-            font-size: 25px;
-            animation: sparkle 2s infinite;
-        }
-
-        .sparkle1 {
-            top: 20%;
-            left: 20%;
-        }
-
-        .sparkle2 {
-            top: 30%;
-            right: 20%;
-            animation-delay: 0.5s;
-        }
-
-        .sparkle3 {
-            bottom: 25%;
-            left: 25%;
-            animation-delay: 1s;
-        }
-
-        .sparkle4 {
-            bottom: 20%;
-            right: 25%;
-            animation-delay: 1.5s;
-        }
-
-        @keyframes sparkle {
-
-            0%, 100% {
-                opacity: 0.2;
-                transform: scale(0.5);
             }
 
             50% {
                 opacity: 1;
-                transform: scale(1.3);
-            }
-        }
-
-
-        /* =========================
-           MAIN PAGE
-        ========================= */
-
-        .page {
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            position: relative;
-            z-index: 2;
-            text-align: center;
-        }
-
-
-        /* =========================
-           SMALL INTRO
-        ========================= */
-
-        .small-text {
-            color: #a8325b;
-            font-size: 17px;
-            margin-bottom: 20px;
-            animation: fadeIn 2s ease;
-        }
-
-
-        /* =========================
-           ENVELOPE
-        ========================= */
-
-        .envelope-area {
-            width: 330px;
-            height: 250px;
-            position: relative;
-        }
-
-        .envelope {
-            position: absolute;
-            width: 300px;
-            height: 190px;
-            left: 15px;
-            bottom: 0;
-            background: #ff8fab;
-            border-radius: 10px;
-            cursor: pointer;
-            box-shadow: 0 15px 35px rgba(170, 70, 100, 0.3);
-        }
-
-
-        /* =========================
-           LETTER INSIDE
-        ========================= */
-
-        .letter {
-            position: absolute;
-            width: 250px;
-            height: 165px;
-            left: 25px;
-            top: 15px;
-
-            background: #fffdf8;
-
-            border-radius: 6px;
-
-            padding: 25px 15px;
-
-            z-index: 2;
-
-            box-shadow: 0 5px 15px rgba(0,0,0,0.15);
-
-            transition: 1.5s ease;
-        }
-
-        .letter h3 {
-            color: #d6336c;
-            margin: 0;
-            font-size: 20px;
-        }
-
-        .letter p {
-            color: #777;
-            font-size: 13px;
-        }
-
-
-        /* =========================
-           ENVELOPE FRONT
-        ========================= */
-
-        .front {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-
-            width: 0;
-            height: 0;
-
-            border-left: 150px solid transparent;
-            border-right: 150px solid transparent;
-            border-bottom: 105px solid #ff6f91;
-
-            z-index: 4;
-        }
-
-
-        /* =========================
-           ENVELOPE FLAP
-        ========================= */
-
-        .flap {
-            position: absolute;
-            top: 0;
-            left: 0;
-
-            width: 0;
-            height: 0;
-
-            border-left: 150px solid transparent;
-            border-right: 150px solid transparent;
-            border-top: 115px solid #ffb3c6;
-
-            transform-origin: top center;
-
-            transition: 1s ease;
-
-            z-index: 5;
-        }
-
-
-        /* =========================
-           HEART SEAL
-        ========================= */
-
-        .seal {
-            position: absolute;
-
-            width: 55px;
-            height: 55px;
-
-            left: 122px;
-            top: 75px;
-
-            background: #e6396b;
-
-            border-radius: 50%;
-
-            display: flex;
-            justify-content: center;
-            align-items: center;
-
-            color: white;
-            font-size: 25px;
-
-            z-index: 6;
-
-            transition: 0.5s ease;
-        }
-
-
-        /* =========================
-           CLICK TO OPEN
-        ========================= */
-
-        .envelope.open .flap {
-            transform: rotateX(180deg);
-        }
-
-        .envelope.open .letter {
-            transform: translateY(-145px);
-        }
-
-        .envelope.open .seal {
-            transform: scale(0);
-            opacity: 0;
-        }
-
-
-        /* =========================
-           HEARTS BURSTING OUT
-        ========================= */
-
-        .burst-heart {
-            position: absolute;
-            left: 135px;
-            top: 80px;
-
-            font-size: 25px;
-
-            opacity: 0;
-
-            z-index: 10;
-        }
-
-        .envelope.open .burst-heart {
-            animation: burst 1.5s ease forwards;
-        }
-
-        .burst2 {
-            animation-delay: 0.15s !important;
-        }
-
-        .burst3 {
-            animation-delay: 0.3s !important;
-        }
-
-        .burst4 {
-            animation-delay: 0.45s !important;
-        }
-
-        @keyframes burst {
-
-            0% {
-                transform: translate(0, 0) scale(0.2);
-                opacity: 1;
             }
 
             100% {
-                transform: translate(-100px, -160px) scale(1.5);
+                transform: translateY(-300px);
                 opacity: 0;
             }
         }
-
-
-        /* =========================
-           TITLE
-        ========================= */
-
-        .title {
-            color: #d6336c;
-
-            font-size: 38px;
-
-            margin: 30px 0 5px;
-
-            opacity: 0;
-
-            transform: translateY(20px);
-
-            transition: 1.5s ease;
-        }
-
-        .envelope.open ~ .title {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-
-        /* =========================
-           INSTRUCTION
-        ========================= */
-
-        .instruction {
-            color: #a8325b;
-            font-size: 15px;
-            margin: 5px;
-            transition: 1s;
-        }
-
-        .envelope.open ~ .instruction {
-            opacity: 0;
-        }
-
-
-        /* =========================
-           CONTINUE BUTTON
-        ========================= */
-
-        .continue {
-            display: inline-block;
-
-            margin-top: 15px;
-
-            padding: 13px 30px;
-
-            background: #ff5d8f;
-
-            color: white;
-
-            text-decoration: none;
-
-            border-radius: 30px;
-
-            font-family: Arial, sans-serif;
-
-            font-size: 16px;
-
-            opacity: 0;
-
-            pointer-events: none;
-
-            transition: 1s;
-        }
-
-        .envelope.open ~ .continue {
-            opacity: 1;
-            pointer-events: auto;
-        }
-
-        .continue:hover {
-            transform: scale(1.08);
-            background: #e64980;
-        }
-
-
-        /* =========================
-           FADE IN
-        ========================= */
-
-        @keyframes fadeIn {
-
-            from {
-                opacity: 0;
-            }
-
-            to {
-                opacity: 1;
-            }
-        }
-
-
-        /* =========================
-           MOBILE
-        ========================= */
-
-        @media (max-width: 600px) {
-
-            .envelope-area {
-                transform: scale(0.85);
-            }
-
-            .title {
-                font-size: 30px;
-            }
-
-            .small-text {
-                font-size: 15px;
-            }
-
-        }
-
     </style>
-
 </head>
-
 
 <body>
 
+    <div class="stars">
+        ✦　⋆　✧　✦　⋆　✧　✦
+    </div>
 
-    <!-- FLOATING HEARTS -->
+    <div class="container">
 
-    <div class="background-heart heart1">❤️</div>
-    <div class="background-heart heart2">💕</div>
-    <div class="background-heart heart3">💗</div>
-    <div class="background-heart heart4">💖</div>
-    <div class="background-heart heart5">💓</div>
-
-
-    <!-- SPARKLES -->
-
-    <div class="sparkle sparkle1">✦</div>
-    <div class="sparkle sparkle2">✧</div>
-    <div class="sparkle sparkle3">✦</div>
-    <div class="sparkle sparkle4">✧</div>
-
-
-    <!-- MAIN PAGE -->
-
-    <main class="page">
-
-        <div class="small-text">
-            I have something special for you... 💕
+        <div class="moon">
+            🌙
         </div>
 
+        <h1>Hey, Baby... ❤️</h1>
 
-        <!-- ENVELOPE -->
-
-        <div class="envelope-area">
-
-            <div class="envelope" onclick="openEnvelope()">
-
-                <!-- Letter -->
-
-                <div class="letter">
-
-                    <h3>
-                        For My Baby ❤️
-                    </h3>
-
-                    <p>
-                        A little something from my heart...
-                    </p>
-
-                </div>
-
-
-                <!-- Flap -->
-
-                <div class="flap"></div>
-
-
-                <!-- Front -->
-
-                <div class="front"></div>
-
-
-                <!-- Heart -->
-
-                <div class="seal">
-                    ❤️
-                </div>
-
-
-                <!-- Hearts -->
-
-                <div class="burst-heart">💕</div>
-                <div class="burst-heart burst2">💗</div>
-                <div class="burst-heart burst3">💖</div>
-                <div class="burst-heart burst4">❤️</div>
-
-            </div>
-
-        </div>
-
-
-        <!-- TITLE -->
-
-        <h1 class="title">
-            Happy Monthsary Baby ❤️
-        </h1>
-
-
-        <!-- INSTRUCTION -->
-
-        <p class="instruction">
-            Click the envelope to open it 💌
+        <p>
+            I made something for you.
         </p>
 
+        <p>
+            It's just a little message<br>
+            from my heart to yours. 🥺
+        </p>
 
-        <!-- BUTTON -->
-
-        <a class="continue" href="message.html">
-            Continue to my letter 💕
+        <a class="button" href="message.html">
+            Tap to open ♡
         </a>
 
-    </main>
+    </div>
 
-
-    <script>
-
-        function openEnvelope() {
-
-            document.querySelector(".envelope").classList.add("open");
-
-        }
-
-    </script>
-
+    <div class="heart heart1">❤️</div>
+    <div class="heart heart2">💕</div>
+    <div class="heart heart3">💗</div>
 
 </body>
 </html>
