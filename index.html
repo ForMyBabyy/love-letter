@@ -1,326 +1,689 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>With You ❤️</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<style>
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-}
+    <title>With You ❤️</title>
 
-body {
-    min-height: 100vh;
-    font-family: Georgia, "Times New Roman", serif;
-    color: white;
-    overflow-x: hidden;
-    background:
-        radial-gradient(circle at 20% 20%, rgba(190, 70, 255, .35), transparent 25%),
-        radial-gradient(circle at 80% 30%, rgba(255, 70, 180, .25), transparent 28%),
-        radial-gradient(circle at 50% 80%, rgba(90, 50, 220, .35), transparent 35%),
-        #080014;
-}
+    <style>
 
-/* Stars */
-body::before {
-    content: "";
-    position: fixed;
-    inset: 0;
-    pointer-events: none;
-    background-image:
-        radial-gradient(white 1px, transparent 1px),
-        radial-gradient(rgba(255,255,255,.7) 1px, transparent 1px);
-    background-size: 90px 90px, 140px 140px;
-    background-position: 10px 20px, 50px 70px;
-    opacity: .55;
-}
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-/* Music button */
-.music-button {
-    position: fixed;
-    top: 20px;
-    right: 20px;
-    z-index: 10;
-    border: 1px solid rgba(255,255,255,.35);
-    border-radius: 30px;
-    padding: 12px 18px;
-    color: white;
-    background: rgba(80, 20, 120, .65);
-    backdrop-filter: blur(8px);
-    box-shadow: 0 0 20px rgba(190, 80, 255, .45);
-    cursor: pointer;
-    font-size: 14px;
-}
+        body {
+            min-height: 100vh;
+            font-family: Georgia, 'Times New Roman', serif;
+            color: white;
+            overflow-x: hidden;
 
-.music-button:hover {
-    transform: scale(1.04);
-}
+            background:
+                radial-gradient(circle at 20% 20%, rgba(140, 70, 180, 0.35), transparent 30%),
+                radial-gradient(circle at 80% 30%, rgba(255, 80, 150, 0.25), transparent 30%),
+                radial-gradient(circle at 50% 80%, rgba(80, 50, 180, 0.3), transparent 35%),
+                linear-gradient(135deg, #050014, #12002b, #03000d);
 
-/* Main */
-.container {
-    position: relative;
-    z-index: 1;
-    width: min(1000px, 92%);
-    margin: auto;
-    padding: 80px 0 70px;
-    text-align: center;
-}
+            position: relative;
+        }
 
-h1 {
-    font-size: clamp(42px, 8vw, 78px);
-    margin-bottom: 10px;
-    text-shadow: 0 0 25px #e28aff;
-}
 
-.subtitle {
-    font-size: clamp(17px, 3vw, 24px);
-    opacity: .9;
-    margin-bottom: 45px;
-}
+        /* =========================
+           STARS
+        ========================= */
 
-/* Glowing heart */
-.heart {
-    width: 110px;
-    height: 110px;
-    margin: 0 auto 50px;
-    position: relative;
-    transform: rotate(-45deg);
-    background: #ff4fa3;
-    box-shadow:
-        0 0 25px #ff4fa3,
-        0 0 60px rgba(255, 79, 163, .8);
-    animation: heartbeat 1.5s infinite;
-}
+        body::before {
+            content: "";
+            position: fixed;
+            inset: 0;
 
-.heart::before,
-.heart::after {
-    content: "";
-    width: 110px;
-    height: 110px;
-    position: absolute;
-    border-radius: 50%;
-    background: #ff4fa3;
-}
+            background-image:
+                radial-gradient(white 1px, transparent 1px),
+                radial-gradient(white 1px, transparent 1px),
+                radial-gradient(#ffffff 1px, transparent 1px);
 
-.heart::before {
-    top: -55px;
-    left: 0;
-}
+            background-size:
+                90px 90px,
+                140px 140px,
+                200px 200px;
 
-.heart::after {
-    top: 0;
-    left: 55px;
-}
+            background-position:
+                10px 20px,
+                50px 80px,
+                100px 30px;
 
-@keyframes heartbeat {
-    0%, 100% { transform: rotate(-45deg) scale(1); }
-    50% { transform: rotate(-45deg) scale(1.12); }
-}
+            opacity: 0.35;
+            pointer-events: none;
+            z-index: 0;
+        }
 
-/* Photos */
-.photos {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 18px;
-    margin: 30px 0 55px;
-}
 
-.photo {
-    min-height: 210px;
-    border-radius: 18px;
-    border: 1px solid rgba(255,255,255,.2);
-    background:
-        linear-gradient(145deg, rgba(255,255,255,.12), rgba(255,255,255,.03));
-    box-shadow: 0 10px 35px rgba(0,0,0,.35);
-    overflow: hidden;
-    display: flex;
-    align-items: end;
-    justify-content: center;
-    padding: 18px;
-    transition: .3s;
-}
+        /* =========================
+           MAIN CONTAINER
+        ========================= */
 
-.photo:hover {
-    transform: translateY(-7px);
-    box-shadow: 0 0 30px rgba(220,100,255,.35);
-}
+        .container {
+            position: relative;
+            z-index: 2;
 
-/* Replace these backgrounds with your own photos if you want */
-.photo:nth-child(1) {
-    background-image:
-        linear-gradient(rgba(20,0,40,.15), rgba(20,0,40,.65)),
-        url("photo1.jpg");
-    background-size: cover;
-    background-position: center;
-}
+            width: 100%;
+            max-width: 1000px;
 
-.photo:nth-child(2) {
-    background-image:
-        linear-gradient(rgba(20,0,40,.15), rgba(20,0,40,.65)),
-        url("photo2.jpg");
-    background-size: cover;
-    background-position: center;
-}
+            margin: auto;
+            padding: 60px 20px;
+            text-align: center;
+        }
 
-.photo:nth-child(3) {
-    background-image:
-        linear-gradient(rgba(20,0,40,.15), rgba(20,0,40,.65)),
-        url("photo3.jpg");
-    background-size: cover;
-    background-position: center;
-}
 
-.photo:nth-child(4) {
-    background-image:
-        linear-gradient(rgba(20,0,40,.15), rgba(20,0,40,.65)),
-        url("photo4.jpg");
-    background-size: cover;
-    background-position: center;
-}
+        /* =========================
+           TITLE
+        ========================= */
 
-.photo span {
-    font-size: 15px;
-    text-shadow: 0 2px 8px black;
-}
+        .title {
+            font-size: 55px;
+            letter-spacing: 5px;
+            margin-bottom: 15px;
 
-/* Message */
-.message {
-    max-width: 720px;
-    margin: auto;
-    padding: 35px 25px;
-    border-radius: 25px;
-    background: rgba(255,255,255,.06);
-    border: 1px solid rgba(255,255,255,.14);
-    backdrop-filter: blur(10px);
-    box-shadow: 0 0 40px rgba(150,70,255,.18);
-}
+            text-shadow:
+                0 0 10px #ffffff,
+                0 0 25px #ff8bd8,
+                0 0 45px #b86cff;
 
-.message h2 {
-    font-size: 32px;
-    margin-bottom: 15px;
-}
+            animation: glow 3s ease-in-out infinite alternate;
+        }
 
-.message p {
-    line-height: 1.8;
-    font-size: 18px;
-    opacity: .92;
-}
+        .subtitle {
+            font-size: 20px;
+            opacity: 0.9;
+            margin-bottom: 45px;
+            font-style: italic;
+        }
 
-/* Floating words */
-.floating {
-    position: fixed;
-    pointer-events: none;
-    font-size: 13px;
-    opacity: .65;
-    animation: float 7s infinite ease-in-out;
-    z-index: 0;
-}
 
-.f1 { left: 8%; top: 25%; }
-.f2 { right: 8%; top: 45%; animation-delay: 2s; }
-.f3 { left: 15%; bottom: 15%; animation-delay: 4s; }
-.f4 { right: 15%; bottom: 25%; animation-delay: 1s; }
+        /* =========================
+           HEART
+        ========================= */
 
-@keyframes float {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-20px); }
-}
+        .heart-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
 
-@media (max-width: 700px) {
-    .photos {
-        grid-template-columns: repeat(2, 1fr);
-    }
+            margin: 25px 0 50px;
+        }
 
-    .photo {
-        min-height: 180px;
-    }
+        .heart {
+            width: 90px;
+            height: 90px;
 
-    .heart {
-        width: 80px;
-        height: 80px;
-    }
+            background: #ff4f9a;
 
-    .heart::before,
-    .heart::after {
-        width: 80px;
-        height: 80px;
-    }
+            position: relative;
+            transform: rotate(-45deg);
 
-    .heart::before { top: -40px; }
-    .heart::after { left: 40px; }
+            box-shadow:
+                0 0 20px #ff4f9a,
+                0 0 50px #ff4f9a,
+                0 0 90px rgba(255, 79, 154, 0.7);
 
-    .music-button {
-        top: 12px;
-        right: 12px;
-    }
-}
-</style>
+            animation: heartbeat 1.4s infinite;
+        }
+
+        .heart::before,
+        .heart::after {
+            content: "";
+
+            width: 90px;
+            height: 90px;
+
+            background: #ff4f9a;
+
+            border-radius: 50%;
+
+            position: absolute;
+        }
+
+        .heart::before {
+            top: -45px;
+            left: 0;
+        }
+
+        .heart::after {
+            left: 45px;
+            top: 0;
+        }
+
+
+        /* =========================
+           FLOATING WORDS
+        ========================= */
+
+        .floating {
+            position: fixed;
+            color: #ffd5f0;
+
+            font-size: 14px;
+            font-weight: bold;
+
+            text-shadow:
+                0 0 10px #ff7ac8,
+                0 0 20px #ff7ac8;
+
+            animation: float 7s ease-in-out infinite;
+
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .one {
+            top: 20%;
+            left: 5%;
+        }
+
+        .two {
+            top: 35%;
+            right: 5%;
+            animation-delay: 2s;
+        }
+
+        .three {
+            bottom: 25%;
+            left: 7%;
+            animation-delay: 4s;
+        }
+
+        .four {
+            bottom: 15%;
+            right: 8%;
+            animation-delay: 1s;
+        }
+
+
+        /* =========================
+           PHOTO SECTION
+        ========================= */
+
+        .photos {
+            display: grid;
+
+            grid-template-columns: repeat(2, 1fr);
+
+            gap: 25px;
+
+            max-width: 850px;
+
+            margin: 0 auto 60px;
+        }
+
+        .photo {
+            position: relative;
+
+            height: 320px;
+
+            border-radius: 20px;
+
+            overflow: hidden;
+
+            background: rgba(255, 255, 255, 0.08);
+
+            border: 1px solid rgba(255, 255, 255, 0.25);
+
+            box-shadow:
+                0 0 20px rgba(255, 100, 200, 0.2),
+                inset 0 0 30px rgba(255, 255, 255, 0.03);
+
+            transition:
+                transform 0.4s ease,
+                box-shadow 0.4s ease;
+        }
+
+        .photo:hover {
+            transform: translateY(-8px) scale(1.02);
+
+            box-shadow:
+                0 0 30px rgba(255, 100, 200, 0.5),
+                0 0 60px rgba(150, 80, 255, 0.25);
+        }
+
+        .photo img {
+            width: 100%;
+            height: 100%;
+
+            object-fit: cover;
+
+            position: absolute;
+
+            top: 0;
+            left: 0;
+
+            transition: transform 0.5s ease;
+        }
+
+        .photo:hover img {
+            transform: scale(1.06);
+        }
+
+
+        /* =========================
+           PHOTO CAPTION
+        ========================= */
+
+        .photo span {
+            position: absolute;
+
+            bottom: 0;
+            left: 0;
+            right: 0;
+
+            padding: 35px 15px 15px;
+
+            font-size: 16px;
+
+            background:
+                linear-gradient(
+                    transparent,
+                    rgba(0, 0, 0, 0.8)
+                );
+
+            z-index: 2;
+
+            text-shadow: 0 2px 5px black;
+        }
+
+
+        /* =========================
+           MESSAGE
+        ========================= */
+
+        .message {
+            max-width: 750px;
+
+            margin: 0 auto 50px;
+
+            padding: 35px 30px;
+
+            border-radius: 25px;
+
+            background: rgba(255, 255, 255, 0.06);
+
+            border: 1px solid rgba(255, 255, 255, 0.18);
+
+            backdrop-filter: blur(8px);
+
+            box-shadow:
+                0 0 30px rgba(200, 100, 255, 0.15);
+        }
+
+        .message h2 {
+            font-size: 30px;
+
+            margin-bottom: 20px;
+
+            color: #ffd5ed;
+
+            text-shadow:
+                0 0 10px #ff6fc4;
+        }
+
+        .message p {
+            font-size: 18px;
+
+            line-height: 1.8;
+
+            color: #f8e9f5;
+        }
+
+
+        /* =========================
+           MUSIC BUTTON
+        ========================= */
+
+        .music-button {
+            border: none;
+
+            padding: 14px 25px;
+
+            border-radius: 50px;
+
+            background: linear-gradient(
+                135deg,
+                #ff4f9a,
+                #9b5cff
+            );
+
+            color: white;
+
+            font-size: 16px;
+
+            font-weight: bold;
+
+            cursor: pointer;
+
+            box-shadow:
+                0 0 15px rgba(255, 79, 154, 0.5);
+
+            transition: 0.3s;
+
+            margin-bottom: 40px;
+        }
+
+        .music-button:hover {
+            transform: scale(1.06);
+
+            box-shadow:
+                0 0 30px rgba(255, 79, 154, 0.8);
+        }
+
+
+        /* =========================
+           FOOTER
+        ========================= */
+
+        .footer {
+            font-size: 14px;
+
+            opacity: 0.65;
+
+            margin-top: 30px;
+        }
+
+
+        /* =========================
+           ANIMATIONS
+        ========================= */
+
+        @keyframes heartbeat {
+
+            0% {
+                transform: rotate(-45deg) scale(1);
+            }
+
+            25% {
+                transform: rotate(-45deg) scale(1.12);
+            }
+
+            40% {
+                transform: rotate(-45deg) scale(1);
+            }
+
+            60% {
+                transform: rotate(-45deg) scale(1.12);
+            }
+
+            100% {
+                transform: rotate(-45deg) scale(1);
+            }
+        }
+
+
+        @keyframes glow {
+
+            from {
+                text-shadow:
+                    0 0 10px #ffffff,
+                    0 0 20px #ff8bd8;
+            }
+
+            to {
+                text-shadow:
+                    0 0 15px #ffffff,
+                    0 0 35px #ff8bd8,
+                    0 0 55px #b86cff;
+            }
+        }
+
+
+        @keyframes float {
+
+            0% {
+                transform: translateY(0);
+                opacity: 0.4;
+            }
+
+            50% {
+                transform: translateY(-25px);
+                opacity: 1;
+            }
+
+            100% {
+                transform: translateY(0);
+                opacity: 0.4;
+            }
+        }
+
+
+        /* =========================
+           MOBILE
+        ========================= */
+
+        @media (max-width: 650px) {
+
+            .container {
+                padding: 40px 15px;
+            }
+
+            .title {
+                font-size: 38px;
+                letter-spacing: 3px;
+            }
+
+            .subtitle {
+                font-size: 17px;
+            }
+
+            .photos {
+                grid-template-columns: 1fr;
+
+                gap: 20px;
+            }
+
+            .photo {
+                height: 330px;
+            }
+
+            .message {
+                padding: 25px 20px;
+            }
+
+            .message h2 {
+                font-size: 25px;
+            }
+
+            .message p {
+                font-size: 16px;
+            }
+
+            .floating {
+                font-size: 11px;
+            }
+        }
+
+    </style>
 </head>
+
 
 <body>
 
-<button class="music-button" onclick="toggleMusic()">🎵 Play His Voice</button>
 
-<audio id="bgMusic" loop>
-    <source src="his_voice_cleaned.mp3" type="audio/mpeg">
-</audio>
+    <!-- FLOATING WORDS -->
 
-<div class="floating f1">I LOVE YOU ❤️</div>
-<div class="floating f2">MY BABY ❤️</div>
-<div class="floating f3">I LOVE YOU ❤️</div>
-<div class="floating f4">MY LOVE ❤️</div>
+    <div class="floating one">
+        I LOVE YOU ❤️
+    </div>
 
-<main class="container">
+    <div class="floating two">
+        MY LOVE ❤️
+    </div>
 
-    <h1>With You</h1>
-    <p class="subtitle">Still you. Always you. ✨</p>
+    <div class="floating three">
+        MY UNIVERSE 🌌
+    </div>
 
-    <div class="heart"></div>
+    <div class="floating four">
+        FOREVER ❤️
+    </div>
 
-    <section class="photos">
-        <div class="photo">
-            <span>Every moment with you is my favorite. ❤️</span>
-        </div>
 
-        <div class="photo">
-            <span>You are my happiness. 💕</span>
-        </div>
+    <main class="container">
 
-        <div class="photo">
-            <span>My favorite person. 🌙</span>
-        </div>
 
-        <div class="photo">
-            <span>Forever with you. ✨</span>
-        </div>
-    </section>
+        <!-- TITLE -->
 
-    <section class="message">
-        <h2>In My Heart ❤️</h2>
-        <p>
-            Happy Monthsary Baby, I love you! 🌌❤️
+        <h1 class="title">
+            With You
+        </h1>
+
+        <p class="subtitle">
+            Still you. Always you. 🌙
         </p>
-    </section>
 
-</main>
 
-<script>
-const music = document.getElementById("bgMusic");
-const button = document.querySelector(".music-button");
+        <!-- HEART -->
 
-function toggleMusic() {
-    if (music.paused) {
-        music.play();
-        button.textContent = "⏸ Pause His Voice";
-    } else {
-        music.pause();
-        button.textContent = "🎵 Play His Voice";
-    }
-}
-</script>
+        <div class="heart-container">
+            <div class="heart"></div>
+        </div>
+
+
+        <!-- MUSIC -->
+
+        <audio id="bgMusic" loop>
+            <source src="his_voice_cleaned.mp3" type="audio/mpeg">
+        </audio>
+
+        <button class="music-button" onclick="toggleMusic()">
+            🎵 Play His Voice
+        </button>
+
+
+        <!-- FOUR PICTURES -->
+
+        <div class="photos">
+
+
+            <!-- PHOTO 1 -->
+
+            <div class="photo">
+
+                <img
+                    src="photo1.jpg"
+                    alt="Our photo 1"
+                >
+
+                <span>
+                    Every moment with you is my favorite. ❤️
+                </span>
+
+            </div>
+
+
+            <!-- PHOTO 2 -->
+
+            <div class="photo">
+
+                <img
+                    src="photo2.jpg"
+                    alt="Our photo 2"
+                >
+
+                <span>
+                    You are my happiness. 💕
+                </span>
+
+            </div>
+
+
+            <!-- PHOTO 3 -->
+
+            <div class="photo">
+
+                <img
+                    src="photo3.jpg"
+                    alt="Our photo 3"
+                >
+
+                <span>
+                    My favorite person. 🌙
+                </span>
+
+            </div>
+
+
+            <!-- PHOTO 4 -->
+
+            <div class="photo">
+
+                <img
+                    src="photo4.jpg"
+                    alt="Our photo 4"
+                >
+
+                <span>
+                    Forever with you. ✨
+                </span>
+
+            </div>
+
+
+        </div>
+
+
+        <!-- LOVE MESSAGE -->
+
+        <section class="message">
+
+            <h2>
+                In My Heart ❤️
+            </h2>
+
+            <p>
+                Happy Monthsary Baby, I LOVE YOUU! 🌌❤️
+            </p>
+
+        </section>
+
+
+        <!-- FOOTER -->
+
+        <div class="footer">
+            Made with love, just for you. ❤️
+        </div>
+
+
+    </main>
+
+
+    <!-- JAVASCRIPT -->
+
+    <script>
+
+        const music = document.getElementById("bgMusic");
+
+        const button = document.querySelector(".music-button");
+
+
+        function toggleMusic() {
+
+            if (music.paused) {
+
+                music.play();
+
+                button.textContent = "⏸ Pause His Voice";
+
+            } else {
+
+                music.pause();
+
+                button.textContent = "🎵 Play His Voice";
+
+            }
+
+        }
+
+    </script>
+
 
 </body>
 </html>
